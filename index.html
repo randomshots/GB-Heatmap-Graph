@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Activity Heat Map</title>
+    <link rel="stylesheet" href="number.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+
+  <body>
+    <div class="header-container">
+      <div>
+        <h1><i class="fas fa-fire"></i> Accepted Questions Heat Map</h1>
+        <p>
+          Track daily problem-solving activity across AtCoder & CodeForces
+          (Shows only Number Of Accepted Questions)
+        </p>
+      </div>
+    </div>
+
+    <!-- <div class="nav-buttons">
+        <a href="mix.html" class="nav-button"><i class="fas fa-arrow-left"></i> Back to Tracker</a>
+        <a href="contests.html" class="nav-button"><i class="fas fa-chart-bar"></i> Contest Stats</a>
+    </div> -->
+
+    <div class="controls-container">
+      <div class="search-bar">
+        <i class="fas fa-search"></i>
+        <input type="text" id="search-input" placeholder="Search users..." />
+      </div>
+
+      <div class="year-selector">
+        <label for="year-select">Select Year:</label>
+        <select id="year-select">
+          <!-- Will be populated dynamically -->
+        </select>
+      </div>
+
+      <div class="platform-filter">
+        <label>Platforms:</label>
+        <label class="checkbox-label">
+          <input type="checkbox" id="show-atcoder" checked />
+          <span>AtCoder</span>
+        </label>
+        <label class="checkbox-label">
+          <input type="checkbox" id="show-codeforces" checked />
+          <span>CodeForces</span>
+        </label>
+      </div>
+
+      <div class="action-buttons">
+        <button id="expand-all-btn" class="btn secondary">
+          <i class="fas fa-expand-alt"></i> Expand All
+        </button>
+        <button id="collapse-all-btn" class="btn secondary">
+          <i class="fas fa-compress-alt"></i> Collapse All
+        </button>
+      </div>
+    </div>
+
+    <div id="loading" class="loading-container">
+      <div class="spinner"></div>
+      <p id="loading-text">Loading heat map data...</p>
+      <div class="progress-container">
+        <div class="progress-bar">
+          <div id="progress-fill" class="progress-fill"></div>
+        </div>
+        <p id="progress-percentage" class="progress-percentage">0%</p>
+      </div>
+    </div>
+
+    <div id="error" class="error-container hidden">
+      <i class="fas fa-exclamation-triangle"></i>
+      <p id="error-message"></p>
+      <button id="retry-btn" class="btn primary">Retry</button>
+    </div>
+
+    <div id="stats-summary" class="stats-summary hidden">
+      <div class="stat-card">
+        <h3>Total Submissions</h3>
+        <p id="total-submissions" class="stat-number">0</p>
+      </div>
+      <div class="stat-card">
+        <h3>Active Days</h3>
+        <p id="active-days" class="stat-number">0</p>
+      </div>
+      <div class="stat-card">
+        <h3>Current Streak</h3>
+        <p id="current-streak" class="stat-number">0</p>
+      </div>
+      <div class="stat-card">
+        <h3>Longest Streak</h3>
+        <p id="longest-streak" class="stat-number">0</p>
+      </div>
+    </div>
+
+    <div id="heatmap-container" class="heatmap-container hidden">
+      <!-- Heat maps will be inserted here -->
+    </div>
+
+    <div id="legend" class="legend hidden">
+      <span>Less</span>
+      <div class="legend-colors">
+        <div
+          class="legend-color"
+          style="background-color: #ebedf0"
+          title="0 submissions"
+        ></div>
+        <div
+          class="legend-color"
+          style="background-color: #c6e48b"
+          title="1-5 submissions"
+        ></div>
+        <div
+          class="legend-color"
+          style="background-color: #7bc96f"
+          title="6-10 submissions"
+        ></div>
+        <div
+          class="legend-color"
+          style="background-color: #239a3b"
+          title="11-20 submissions"
+        ></div>
+        <div
+          class="legend-color"
+          style="background-color: #196127"
+          title="20+ submissions"
+        ></div>
+      </div>
+      <span>More</span>
+    </div>
+
+    <footer>
+      <p>Made by Lrv & Jalaluddin © 2025</p>
+    </footer>
+
+    <script src="number.js"></script>
+  </body>
+</html>
