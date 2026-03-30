@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Activity Graph</title>
+    <link rel="stylesheet" href="graph.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+
+  <body>
+    <div class="container">
+      <!-- Header -->
+      <header>
+        <div class="header-content">
+          <button id="back-button" class="back-button">
+            <i class="fas fa-arrow-left"></i> Back to Heatmap
+          </button>
+          <h1 id="page-title">Activity Graph</h1>
+          <div class="header-controls">
+            <select id="user-select" class="user-select">
+              <!-- Will be populated dynamically -->
+            </select>
+            <select id="year-select" class="year-select">
+              <option value="2025" selected>2025</option>
+              <option value="2024">2024</option>
+              <option value="2023">2023</option>
+              <option value="2022">2022</option>
+            </select>
+            <button id="theme-toggle" class="theme-toggle">
+              <i class="fas fa-moon"></i>
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <!-- Stats Cards -->
+      <div class="stats-container" id="stats-container">
+        <div class="stat-card">
+          <div
+            class="stat-icon"
+            style="
+              background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            "
+          >
+            <i class="fas fa-check-circle"></i>
+          </div>
+          <div class="stat-content">
+            <div class="stat-value" id="total-accepted">0</div>
+            <div class="stat-label">Total Accepted</div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div
+            class="stat-icon"
+            style="
+              background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            "
+          >
+            <i class="fas fa-calendar-check"></i>
+          </div>
+          <div class="stat-content">
+            <div class="stat-value" id="active-days">0</div>
+            <div class="stat-label">Active Days</div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div
+            class="stat-icon"
+            style="
+              background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            "
+          >
+            <i class="fas fa-fire"></i>
+          </div>
+          <div class="stat-content">
+            <div class="stat-value" id="current-streak">0</div>
+            <div class="stat-label">Current Streak</div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div
+            class="stat-icon"
+            style="
+              background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            "
+          >
+            <i class="fas fa-trophy"></i>
+          </div>
+          <div class="stat-content">
+            <div class="stat-value" id="longest-streak">0</div>
+            <div class="stat-label">Longest Streak</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Graph Type Selector -->
+      <div class="graph-selector">
+        <button class="graph-type-btn active" data-type="daily">
+          <i class="fas fa-calendar-day"></i> Daily
+        </button>
+        <button class="graph-type-btn" data-type="weekly">
+          <i class="fas fa-calendar-week"></i> Weekly
+        </button>
+        <button class="graph-type-btn" data-type="monthly">
+          <i class="fas fa-calendar-alt"></i> Monthly
+        </button>
+      </div>
+
+      <!-- Chart Container -->
+      <div class="chart-container">
+        <canvas id="activity-chart"></canvas>
+      </div>
+
+      <!-- Platform Breakdown -->
+      <div class="platform-breakdown">
+        <h2>Platform Breakdown</h2>
+        <div class="platform-stats">
+          <div class="platform-card atcoder">
+            <div class="platform-header">
+              <i class="fas fa-code"></i>
+              <h3>AtCoder</h3>
+            </div>
+            <div class="platform-count" id="atcoder-count">0</div>
+            <div class="platform-label">Accepted Solutions</div>
+          </div>
+          <div class="platform-card codeforces">
+            <div class="platform-header">
+              <i class="fas fa-laptop-code"></i>
+              <h3>Codeforces</h3>
+            </div>
+            <div class="platform-count" id="codeforces-count">0</div>
+            <div class="platform-label">Accepted Solutions</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Loading Indicator -->
+      <div id="loading" class="loading hidden">
+        <div class="spinner"></div>
+        <p>Loading data...</p>
+      </div>
+    </div>
+
+    <script src="graph.js"></script>
+  </body>
+</html>
