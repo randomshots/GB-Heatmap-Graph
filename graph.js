@@ -49,6 +49,11 @@ const USERS = [
     atcoder: "jakkalaramu",
     codeforces: "codercp",
   },
+  {
+    name: "Manoj Vakiti",
+    atcoder: "manojvakiti",
+    codeforces: "manojvakiti",
+  },
 ];
 // ...existing code...
 
