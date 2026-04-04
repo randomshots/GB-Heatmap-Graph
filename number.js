@@ -8,6 +8,7 @@ const defaultAtCoderUsers = [
   "advaithchaitanya",
   "bharathkumarbilakanti",
   "jakkalaramu",
+  "manojvakiti",
 ];
 
 const defaultCodeforcesUsers = [
@@ -19,6 +20,7 @@ const defaultCodeforcesUsers = [
   "advaithchaitanya",
   "bharathkumarbilakanti",
   "codercp",
+  "manojvakiti",
 ];
 
 const userNames = {
@@ -30,6 +32,7 @@ const userNames = {
   advaithchaitanya: "Advaith Chaitanya",
   bharathkumarbilakanti: "Bharath",
   jakkalaramu: "Jakkala Ramu",
+  manojvakiti: "Manoj Vakiti",
 };
 
 const userMapping = {};
